@@ -1,0 +1,42 @@
+ (cd "$(git rev-parse --show-toplevel)" && git apply --3way <<'EOF' 
+diff --git a//dev/null b/index.html
+index 0000000000000000000000000000000000000000..eee990cd3b50d1ea64e52d632d76490bd119c9fd 100644
+--- a//dev/null
++++ b/index.html
+@@ -0,0 +1,33 @@
++<!DOCTYPE html>
++<html>
++  <head>
++    <meta charset="utf-8" />
++    <title>AR.js Basketball Demo</title>
++    <script src="https://aframe.io/releases/1.4.1/aframe.min.js"></script>
++    <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.7.6/aframe/build/aframe-ar.js"></script>
++    <style>
++      body { margin: 0; overflow: hidden; }
++    </style>
++  </head>
++  <body>
++    <a-scene embedded arjs>
++      <a-marker preset="hiro">
++        <a-entity>
++          <a-torus
++            color="red"
++            radius="0.5"
++            radius-tubular="0.05"
++            rotation="90 0 0"
++            position="0 1 0"
++          ></a-torus>
++          <a-sphere
++            color="orange"
++            radius="0.2"
++            position="0 0.8 0.2"
++          ></a-sphere>
++        </a-entity>
++      </a-marker>
++      <a-entity camera></a-entity>
++    </a-scene>
++  </body>
++</html>
+ 
+EOF
+)
